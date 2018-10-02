@@ -29,8 +29,8 @@ class MathDictionary extends React.Component {
   render() {
     return (
       <div>
-        <button id="frenchButton" onClick={this.clickFrench}>français</button>
-        <button id="englishButton" onClick={this.clickEnglish}>English</button>
+        <button className="languageButton" onClick={this.clickFrench}>français</button>
+        <button className="languageButton" onClick={this.clickEnglish}>English</button>
         <div>
           <p>
             French: {this.state.french.toString()}
