@@ -1,8 +1,12 @@
+body {
+  background-color: rgb(236, 240, 241);
+}
+
 #content {
   width: 70%;
   height: auto;
   margin: auto;
-  background-color: red;
+  background-color: rgb(236, 240, 241);
   font-family: 'Lato', sans-serif;
 }
 
@@ -11,9 +15,15 @@
   font-size: 40px;
 }
 
-button {
+.languageButton {
   width: 50%;
   font-size: 30px;
   border: none;
-  background-color: red;
+  background-color: rgb(236, 240, 241);
+}
+
+button:hover {
+  background-color: rgb(52, 152, 219);
+  color: rgb(236, 240, 241);
+  border-radius: 10px;
 }
