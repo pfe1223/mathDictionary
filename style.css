@@ -1,0 +1,19 @@
+#content {
+  width: 70%;
+  height: auto;
+  margin: auto;
+  background-color: red;
+  font-family: 'Lato', sans-serif;
+}
+
+#titleArea {
+  text-align: center;
+  font-size: 40px;
+}
+
+button {
+  width: 50%;
+  font-size: 30px;
+  border: none;
+  background-color: red;
+}
