@@ -95,15 +95,25 @@ const data = [
   }
 ]
 
+// console.log(data.map(obj => {
+//   if(obj.frenchword !== null) {
+//     return obj.frenchword
+//   }
+// }))
+
 class MathDictionary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      french: true
+      french: true,
+      words: []
     };
 
-    this.clickFrench = this.clickFrench.bind(this);
-    this.clickEnglish = this.clickEnglish.bind(this);
+    this.clickFrench = this.clickFrench.bind(this)
+    this.clickEnglish = this.clickEnglish.bind(this)
+    this.getFrenchWords = this.getFrenchWords.bind(this)
+    this.getEnglishWords = this.getEnglishWords.bind(this)
+    this.showWords = this.showWords.bind(this)
   }
 
   clickFrench() {
@@ -118,12 +128,43 @@ class MathDictionary extends React.Component {
     }))
   }
 
+  getFrenchWords() {
+    let newArray = data.map(obj => {
+      if(obj.frenchword !== null) {
+        return obj.frenchword
+      }
+    })
+    newArray.sort();
+    this.setState(state => ({
+      words: newArray
+    }))
+  }
+
+  getEnglishWords() {
+
+  }
+
+  showWords() {
+    this.state.words.map((word) => <li>{word}</li>)
+  }
+
   render() {
+    if (this.state.french == true) {
+      this.getFrenchWords
+    } else {
+      this.getEnglishWords
+    }
+
     return (
       <div>
         <button className="languageButton" onClick={this.clickFrench}>français</button>
         <button className="languageButton" onClick={this.clickEnglish}>English</button>
 
+        <div>
+          <ul>
+            {this.showWords()}
+          </ul>
+        </div>
       </div>
     )
   }
