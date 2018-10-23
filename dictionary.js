@@ -105,65 +105,48 @@ class MathDictionary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      french: true,
-      words: []
+      language: "french",
+      view: "list"
     };
 
     this.clickFrench = this.clickFrench.bind(this)
     this.clickEnglish = this.clickEnglish.bind(this)
-    this.getFrenchWords = this.getFrenchWords.bind(this)
-    this.getEnglishWords = this.getEnglishWords.bind(this)
-    this.showWords = this.showWords.bind(this)
+    this.getWords = this.getWords.bind(this)
   }
 
   clickFrench() {
     this.setState(state => ({
-      french: true
+      language: "french"
     }))
   }
 
   clickEnglish() {
     this.setState(state => ({
-      french: false
+      language: "english"
     }))
   }
 
-  getFrenchWords() {
-    let newArray = data.map(obj => {
-      if(obj.frenchword !== null) {
-        return obj.frenchword
-      }
-    })
-    newArray.sort();
-    this.setState(state => ({
-      words: newArray
-    }))
-  }
-
-  getEnglishWords() {
-
-  }
-
-  showWords() {
-    this.state.words.map((word) => <li>{word}</li>)
+  getWords() {
+    let words
+    if(this.state.language === "french"){
+      words = data.map(word => word.frenchword.toLowerCase()  )
+    } else if(this.state.language === "english") {
+      words = data.map(word => word.englishword.toLowerCase())
+    }
+    return words.sort()
   }
 
   render() {
-    if (this.state.french == true) {
-      this.getFrenchWords
-    } else {
-      this.getEnglishWords
-    }
-
+    console.log(this.getWords())
     return (
       <div>
-        <button className="languageButton" onClick={this.clickFrench}>français</button>
-        <button className="languageButton" onClick={this.clickEnglish}>English</button>
+        <div className="buttonArea">
+          <button className="languageButton" onClick={this.clickFrench}>français</button>
+          <button className="languageButton" onClick={this.clickEnglish}>English</button>
+        </div>
 
         <div>
-          <ul>
-            {this.showWords()}
-          </ul>
+            {this.getWords().map((word, index) => <button className="wordButton" key={index}>{word}</button>)}
         </div>
       </div>
     )
