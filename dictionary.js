@@ -116,6 +116,7 @@ class MathDictionary extends React.Component {
     this.listView = this.listView.bind(this)
     this.wordView = this.wordView.bind(this)
     this.clickWord = this.clickWord.bind(this)
+    this.goHome = this.goHome.bind(this)
   }
 
   clickFrench() {
@@ -173,7 +174,7 @@ class MathDictionary extends React.Component {
       <div>
         <div className="navArea">
           <button>Back</button>
-          <button>Home</button>
+          <button onClick={this.goHome}>Home</button>
           <button>Next</button>
         </div>
 
@@ -190,6 +191,12 @@ class MathDictionary extends React.Component {
         </div>
       </div>
     )
+  }
+
+  goHome() {
+    this.setState(state => ({
+      view: "list"
+    }))
   }
 
   render() {
