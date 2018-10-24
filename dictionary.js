@@ -112,6 +112,9 @@ class MathDictionary extends React.Component {
     this.clickFrench = this.clickFrench.bind(this)
     this.clickEnglish = this.clickEnglish.bind(this)
     this.getWords = this.getWords.bind(this)
+    this.showDefinition = this.showDefinition.bind(this)
+    this.listView = this.listView.bind(this)
+    this.wordView = this.wordView.bind(this)
   }
 
   clickFrench() {
@@ -136,8 +139,14 @@ class MathDictionary extends React.Component {
     return words.sort()
   }
 
-  render() {
-    console.log(this.getWords())
+  showDefinition(props) {
+    this.setState(state => ({
+      view: "definition"
+    }))
+    const word = props.word
+  }
+
+  listView() {
     return (
       <div>
         <div className="buttonArea">
@@ -146,9 +155,40 @@ class MathDictionary extends React.Component {
         </div>
 
         <div>
-            {this.getWords().map((word, index) => <button className="wordButton" key={index}>{word}</button>)}
+          {this.getWords().map((word, index) => <button className="wordButton" key={index}>{word}</button>)}
         </div>
       </div>
+    )
+  }
+
+  wordView() {
+    return (
+      <div>
+        <div className="navArea">
+          <button>Back</button>
+          <button>Home</button>
+          <button>Next</button>
+        </div>
+
+        <div className="wordTitle">
+          Word
+        </div>
+
+        <div className="wordImage">
+
+        </div>
+
+        <div className="wordDefinition">
+
+        </div>
+      </div>
+    )
+  }
+
+  render() {
+    //console.log(this.getWords())
+    return (
+      this.listView()
     )
   }
 }
