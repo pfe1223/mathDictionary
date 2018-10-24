@@ -105,8 +105,8 @@ class MathDictionary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      language: "french",
-      view: "list"
+      language: "french", //choice between "engligh" and "french"
+      view: "list" //choice betwen "list" and "definition"
     };
 
     this.clickFrench = this.clickFrench.bind(this)
@@ -115,6 +115,7 @@ class MathDictionary extends React.Component {
     this.showDefinition = this.showDefinition.bind(this)
     this.listView = this.listView.bind(this)
     this.wordView = this.wordView.bind(this)
+    this.clickWord = this.clickWord.bind(this)
   }
 
   clickFrench() {
@@ -155,10 +156,16 @@ class MathDictionary extends React.Component {
         </div>
 
         <div>
-          {this.getWords().map((word, index) => <button className="wordButton" key={index}>{word}</button>)}
+          {this.getWords().map((word, index) => <button className="wordButton" key={index} onClick={this.clickWord}>{word}</button>)}
         </div>
       </div>
     )
+  }
+
+  clickWord() {
+    this.setState(state => ({
+      view: "definition"
+    }))
   }
 
   wordView() {
@@ -187,9 +194,11 @@ class MathDictionary extends React.Component {
 
   render() {
     //console.log(this.getWords())
-    return (
-      this.listView()
-    )
+    if (this.state.view === "list") {
+        return this.listView()
+    } else if (this.state.view === "definition") {
+        return this.wordView()
+    }
   }
 }
 
