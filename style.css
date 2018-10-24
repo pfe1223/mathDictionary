@@ -18,7 +18,7 @@ body {
 
 .languageButton {
   width: 50%;
-  font-size: 30px;
+  font-size: 40px;
   border: none;
   background-color: rgb(255, 255, 255);
   color: rgb(47, 54, 64);
@@ -34,7 +34,7 @@ body {
   width: 33%;
   border: none;
   background-color: rgb(255, 255, 255);
-  font-size: 25px;
+  font-size: 30px;
   padding-top: 10px;
 }
 
@@ -43,5 +43,5 @@ body {
 }
 
 .buttonArea {
-  border-bottom: solid 5px rgb(192, 57, 43);
+  padding-bottom: 20px;
 }
