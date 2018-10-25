@@ -105,6 +105,8 @@ class MathDictionary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      words: null, //alphabetic list of words
+      word: null, //word to be defined
       language: "french", //choice between "engligh" and "french"
       view: "list" //choice betwen "list" and "definition"
     };
@@ -173,9 +175,9 @@ class MathDictionary extends React.Component {
     return (
       <div>
         <div id="navArea">
-          <button className="navButton"><</button>
-          <button className="navButton" onClick={this.goHome}>Home</button>
-          <button className="navButton">></button>
+          <button className="navButton"> <img className="backButton" src="assets/backButtonBlue.png"></img> </button>
+          <button className="navButton" onClick={this.goHome}> <img className="backButton" src="assets/homeButtonBlue.png"></img> </button>
+          <button className="navButton"> <img className="backButton" src="assets/forwardButtonBlue.png"></img> </button>
         </div>
 
         <div id="wordTitle">
@@ -202,9 +204,9 @@ class MathDictionary extends React.Component {
   render() {
     //console.log(this.getWords())
     if (this.state.view === "list") {
-        return this.listView()
+        return this.listView() //show the list of words
     } else if (this.state.view === "definition") {
-        return this.wordView()
+        return this.wordView() //show the definition of the word
     }
   }
 }
