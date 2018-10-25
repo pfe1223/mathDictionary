@@ -172,21 +172,21 @@ class MathDictionary extends React.Component {
   wordView() {
     return (
       <div>
-        <div className="navArea">
+        <div id="navArea">
           <button>Back</button>
           <button onClick={this.goHome}>Home</button>
           <button>Next</button>
         </div>
 
-        <div className="wordTitle">
+        <div id="wordTitle">
           Word
         </div>
 
-        <div className="wordImage">
+        <div id="wordImage">
 
         </div>
 
-        <div className="wordDefinition">
+        <div id="wordDefinition">
 
         </div>
       </div>
