@@ -173,9 +173,9 @@ class MathDictionary extends React.Component {
     return (
       <div>
         <div id="navArea">
-          <button>Back</button>
-          <button onClick={this.goHome}>Home</button>
-          <button>Next</button>
+          <button className="navButton"><</button>
+          <button className="navButton" onClick={this.goHome}>Home</button>
+          <button className="navButton">></button>
         </div>
 
         <div id="wordTitle">
