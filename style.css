@@ -60,3 +60,8 @@ body {
   font-size: 30px;
   padding-top: 10px;
 }
+
+.backButton {
+  width: 15%;
+  height: 15%
+}
