@@ -95,18 +95,10 @@ const data = [
   }
 ]
 
-// console.log(data.map(obj => {
-//   if(obj.frenchword !== null) {
-//     return obj.frenchword
-//   }
-// }))
-
 class MathDictionary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      words: null, //alphabetic list of words
-      word: null, //word to be defined
       language: "french", //choice between "engligh" and "french"
       view: "list" //choice betwen "list" and "definition"
     };
@@ -202,7 +194,6 @@ class MathDictionary extends React.Component {
   }
 
   render() {
-    //console.log(this.getWords())
     if (this.state.view === "list") {
         return this.listView() //show the list of words
     } else if (this.state.view === "definition") {
