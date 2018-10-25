@@ -18,16 +18,14 @@ body {
 
 .languageButton {
   width: 50%;
-  font-size: 40px;
+  font-size: 50px;
   border: none;
   background-color: rgb(255, 255, 255);
   color: rgb(47, 54, 64);
 }
 
 .languageButton:hover {
-  background-color: rgb(52, 152, 219);
-  color: rgb(255, 255, 255);
-  border-radius: 10px;
+  color: rgb(52, 152, 219);
 }
 
 .wordButton {
