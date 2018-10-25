@@ -113,18 +113,21 @@ class MathDictionary extends React.Component {
     this.goHome = this.goHome.bind(this)
   }
 
+  //sets the stat variable "language" to "french"
   clickFrench() {
     this.setState(state => ({
       language: "french"
     }))
   }
 
+  //sets the stat variable "language" to "english"
   clickEnglish() {
     this.setState(state => ({
       language: "english"
     }))
   }
 
+  //returns a list of words based on the language selected
   getWords() {
     let words
     if(this.state.language === "french"){
@@ -142,6 +145,7 @@ class MathDictionary extends React.Component {
     const word = props.word
   }
 
+  //displays the language buttons and list of words
   listView() {
     return (
       <div>
@@ -157,12 +161,14 @@ class MathDictionary extends React.Component {
     )
   }
 
+  //changes state variable "view" to "definition"
   clickWord() {
     this.setState(state => ({
       view: "definition"
     }))
   }
 
+  //displays the word, its definitions, and a visual aid
   wordView() {
     return (
       <div>
@@ -187,6 +193,7 @@ class MathDictionary extends React.Component {
     )
   }
 
+  //sets the state variable "view" back to "list"
   goHome() {
     this.setState(state => ({
       view: "list"
