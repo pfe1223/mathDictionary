@@ -99,6 +99,7 @@ class MathDictionary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      word: "Word",
       language: "french", //choice between "engligh" and "french"
       view: "list" //choice betwen "list" and "definition"
     };
@@ -106,7 +107,7 @@ class MathDictionary extends React.Component {
     this.clickFrench = this.clickFrench.bind(this)
     this.clickEnglish = this.clickEnglish.bind(this)
     this.getWords = this.getWords.bind(this)
-    this.showDefinition = this.showDefinition.bind(this)
+    //this.showDefinition = this.showDefinition.bind(this)
     this.listView = this.listView.bind(this)
     this.wordView = this.wordView.bind(this)
     this.clickWord = this.clickWord.bind(this)
@@ -138,13 +139,6 @@ class MathDictionary extends React.Component {
     return words.sort()
   }
 
-  showDefinition(props) {
-    this.setState(state => ({
-      view: "definition"
-    }))
-    const word = props.word
-  }
-
   //displays the language buttons and list of words
   listView() {
     return (
@@ -155,15 +149,17 @@ class MathDictionary extends React.Component {
         </div>
 
         <div>
-          {this.getWords().map((word, index) => <button className="wordButton" key={index} onClick={this.clickWord}>{word}</button>)}
+          {this.getWords().map((word, index) => <input type="button" className="wordButton" key={index} value={word} onClick={this.clickWord}></input>)}
         </div>
       </div>
     )
   }
 
   //changes state variable "view" to "definition"
-  clickWord() {
+  clickWord(event) {
+    const newWord = event.target.value
     this.setState(state => ({
+      word: newWord,
       view: "definition"
     }))
   }
@@ -179,7 +175,7 @@ class MathDictionary extends React.Component {
         </div>
 
         <div id="wordTitle">
-          Word
+          {this.state.word}
         </div>
 
         <div id="wordImage">
