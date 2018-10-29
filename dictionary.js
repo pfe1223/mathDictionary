@@ -3,6 +3,7 @@
 //data to be displayed
 const data = [
   {
+    "objID" : 1,
     "frenchword": "Symmetrique",
     "frenchdescription": "la meme chose",
     "englishword": "Symmetrical",
@@ -10,6 +11,7 @@ const data = [
     "image": "image01"
   },
   {
+    "objID" : 2,
     "frenchword": "l'axe",
     "frenchdescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "englishword": "axis",
@@ -17,6 +19,7 @@ const data = [
     "image": "image02"
   },
   {
+    "objID" : 3,
     "frenchword": "égalité",
     "frenchdescription": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
     "englishword": "equality",
@@ -24,6 +27,7 @@ const data = [
     "image": "image03"
   },
   {
+    "objID" : 4,
     "frenchword": "multiplication",
     "frenchdescription": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
     "englishword": "multiplication",
@@ -31,6 +35,7 @@ const data = [
     "image": "image04"
   },
   {
+    "objID" : 5,
     "frenchword": "soustraction",
     "frenchdescription": "Et harum quidem rerum facilis est et expedita distinctio.",
     "englishword": "substraction",
@@ -38,6 +43,7 @@ const data = [
     "image": "image05"
   },
   {
+    "objID" : 6,
     "frenchword": "superficie",
     "frenchdescription": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur",
     "englishword": "area",
@@ -45,6 +51,7 @@ const data = [
     "image": "image06"
   },
   {
+    "objID" : 7,
     "frenchword": "volume",
     "frenchdescription": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
     "englishword": "volume",
@@ -52,6 +59,7 @@ const data = [
     "image": "image07"
   },
   {
+    "objID" : 8,
     "frenchword": "racine carrée",
     "frenchdescription": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
     "englishword": "square root",
@@ -59,6 +67,7 @@ const data = [
     "image": "image08"
   },
   {
+    "objID" : 9,
     "frenchword": "longeur",
     "frenchdescription": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
     "englishword": "length",
@@ -66,6 +75,7 @@ const data = [
     "image": "image09"
   },
   {
+    "objID" : 10,
     "frenchword": "largeur",
     "frenchdescription": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.",
     "englishword": "width",
@@ -73,6 +83,7 @@ const data = [
     "image": "image10"
   },
   {
+    "objID" : 11,
     "frenchword": "hauteur",
     "frenchdescription": "Et harum quidem rerum facilis est et expedita distinctio.",
     "englishword": "height",
@@ -80,6 +91,7 @@ const data = [
     "image": "image11"
   },
   {
+    "objID" : 12,
     "frenchword": "multiples",
     "frenchdescription": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
     "englishword": "multiples",
@@ -87,6 +99,7 @@ const data = [
     "image": "image12"
   },
   {
+    "objID" : 13,
     "frenchword": "facteur",
     "frenchdescription": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.",
     "englishword": "factor",
@@ -99,19 +112,20 @@ class MathDictionary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      word: "Word",
+      word: "/",
       language: "french", //choice between "engligh" and "french"
       view: "list" //choice betwen "list" and "definition"
     };
 
-    this.clickFrench = this.clickFrench.bind(this)
-    this.clickEnglish = this.clickEnglish.bind(this)
-    this.getWords = this.getWords.bind(this)
-    //this.showDefinition = this.showDefinition.bind(this)
-    this.listView = this.listView.bind(this)
-    this.wordView = this.wordView.bind(this)
-    this.clickWord = this.clickWord.bind(this)
-    this.goHome = this.goHome.bind(this)
+    this.clickFrench = this.clickFrench.bind(this) //changes language to french
+    this.clickEnglish = this.clickEnglish.bind(this) //changes language to english
+    this.getWords = this.getWords.bind(this) //show list of words
+    this.showDefinition = this.showDefinition.bind(this) //show definition of selected word
+    this.showWords = this.showWords.bind(this) //show definition of selected word
+    this.listView = this.listView.bind(this) //show language buttons and all of the words in the dictionary
+    this.wordView = this.wordView.bind(this) //show word, image, and definitions
+    this.clickWord = this.clickWord.bind(this) //called when clicked on word
+    this.goHome = this.goHome.bind(this) //return to the list view
   }
 
   //sets the stat variable "language" to "french"
@@ -157,11 +171,34 @@ class MathDictionary extends React.Component {
 
   //changes state variable "view" to "definition"
   clickWord(event) {
-    const newWord = event.target.value
+    const firstWord = event.target.value
+    let secondWord
+    if(this.state.language === "french") {
+      for(let i = 0; i < data.length; i++) {
+        if(data[i].frenchword === firstWord) {
+          secondWord = data[i].englishword
+        }
+      }
+    } else if (this.state.language === "english") {
+      for(let i = 0; i < data.length; i++) {
+        if(data[i].englishword === firstWord) {
+          secondWord = data[i].frenchword
+        }
+      }
+    }
+
     this.setState(state => ({
-      word: newWord,
+      word: firstWord + "/" + secondWord,
       view: "definition"
     }))
+  }
+
+  showDefinition() {
+
+  }
+
+  showWords() {
+    return <h3>{this.state.word}</h3>
   }
 
   //displays the word, its definitions, and a visual aid
@@ -175,15 +212,17 @@ class MathDictionary extends React.Component {
         </div>
 
         <div id="wordTitle">
-          {this.state.word}
+          {this.showWords()}
         </div>
 
         <div id="wordImage">
 
         </div>
 
-        <div id="wordDefinition">
+        <div id="definitions">
+          <div>
 
+          </div>
         </div>
       </div>
     )
