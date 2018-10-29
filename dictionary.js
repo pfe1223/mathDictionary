@@ -112,7 +112,7 @@ class MathDictionary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      word: "/",
+      obj: "",
       language: "french", //choice between "engligh" and "french"
       view: "list" //choice betwen "list" and "definition"
     };
@@ -171,34 +171,53 @@ class MathDictionary extends React.Component {
 
   //changes state variable "view" to "definition"
   clickWord(event) {
-    const firstWord = event.target.value
-    let secondWord
+    const word = event.target.value
+    let object
     if(this.state.language === "french") {
       for(let i = 0; i < data.length; i++) {
-        if(data[i].frenchword === firstWord) {
-          secondWord = data[i].englishword
+        if(data[i].frenchword === word) {
+          object = data[i].objID
         }
       }
     } else if (this.state.language === "english") {
       for(let i = 0; i < data.length; i++) {
-        if(data[i].englishword === firstWord) {
-          secondWord = data[i].frenchword
+        if(data[i].englishword === word) {
+          object = data[i].objID
         }
       }
     }
 
     this.setState(state => ({
-      word: firstWord + "/" + secondWord,
+      obj: object,
       view: "definition"
     }))
   }
 
   showDefinition() {
-
+    let fDef, eDef
+    for (let i = 0; i < data.length; i++) {
+      if(data[i].objID === this.state.obj) {
+        fDef = data[i].frenchdescription
+        eDef = data[i].englishdescription
+      }
+    }
+    return (
+      <div id="definitions">
+        <div className="fDefintion">{fDef}</div>
+        <div className="eDefintion">{eDef}</div>
+      </div>
+    )
   }
 
   showWords() {
-    return <h3>{this.state.word}</h3>
+    let fWord, eWord
+    for (let i = 0; i < data.length; i++) {
+      if(data[i].objID === this.state.obj) {
+        fWord = data[i].frenchword
+        eWord = data[i].englishword
+      }
+    }
+    return <h3>{fWord + "/" + eWord}</h3>
   }
 
   //displays the word, its definitions, and a visual aid
@@ -219,10 +238,8 @@ class MathDictionary extends React.Component {
 
         </div>
 
-        <div id="definitions">
-          <div>
-
-          </div>
+        <div>
+          {this.showDefinition()}
         </div>
       </div>
     )
