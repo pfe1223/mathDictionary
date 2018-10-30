@@ -4,9 +4,9 @@
 const data = [
   {
     "objID" : 1,
-    "frenchword": "Symmetrique",
+    "frenchword": "symmetrique",
     "frenchdescription": "la meme chose",
-    "englishword": "Symmetrical",
+    "englishword": "symmetrical",
     "englishdescription": "same on both sides",
     "image": "image01"
   },
@@ -194,6 +194,7 @@ class MathDictionary extends React.Component {
       obj: object,
       view: "definition"
     }))
+    //console.log("Word: ", word, "Obj ID: ", this.state.obj)
   }
 
   showDefinition() {
@@ -214,6 +215,7 @@ class MathDictionary extends React.Component {
 
   showWords() {
     let fWord, eWord
+    console.log("Obj ID: ", this.state.obj)
     for (let i = 0; i < data.length; i++) {
       if(data[i].objID === this.state.obj) {
         fWord = data[i].frenchword
@@ -234,7 +236,13 @@ class MathDictionary extends React.Component {
   }
 
   nextWord() {
-
+    let nextWord = this.state.obj + 1
+    if(nextWord > data.length) {
+      nextWord = 1
+    }
+    this.setState(state => ({
+      obj : nextWord
+    }))
   }
 
   prevWord() {
@@ -246,9 +254,9 @@ class MathDictionary extends React.Component {
     return (
       <div>
         <div id="navArea">
-          <button className="navButton" onClick={this.nextWord}> <img className="backButton" src="assets/backButtonBlue.png"></img> </button>
+          <button className="navButton" onClick={this.prevWord}> <img className="backButton" src="assets/backButtonBlue.png"></img> </button>
           <button className="navButton" onClick={this.goHome}> <img className="backButton" src="assets/homeButtonBlue.png"></img> </button>
-          <button className="navButton" onClick={this.prevWord}> <img className="backButton" src="assets/forwardButtonBlue.png"></img> </button>
+          <button className="navButton" onClick={this.nextWord}> <img className="backButton" src="assets/forwardButtonBlue.png"></img> </button>
         </div>
 
         <div id="wordTitle">
