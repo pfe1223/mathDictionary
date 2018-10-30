@@ -64,19 +64,15 @@ body {
   height: 15%
 }
 
-#definitions {
-  background-color: green;
-}
+#definitions {}
 
 .fDefintion {
   display: inline-block;
-  background-color: red;
   width: 48%;
   margin-right: 4%;
 }
 
 .eDefintion {
   display: inline-block;
-  background-color: blue;
   width: 48%;
 }
