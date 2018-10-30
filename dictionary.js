@@ -122,10 +122,13 @@ class MathDictionary extends React.Component {
     this.getWords = this.getWords.bind(this) //show list of words
     this.showDefinition = this.showDefinition.bind(this) //show definition of selected word
     this.showWords = this.showWords.bind(this) //show definition of selected word
+    this.showImage = this.showImage.bind(this) //show image of selected word
     this.listView = this.listView.bind(this) //show language buttons and all of the words in the dictionary
     this.wordView = this.wordView.bind(this) //show word, image, and definitions
     this.clickWord = this.clickWord.bind(this) //called when clicked on word
     this.goHome = this.goHome.bind(this) //return to the list view
+    this.nextWord = this.nextWord.bind(this) //return to the list view
+    this.prevWord = this.prevWord.bind(this) //return to the list view
   }
 
   //sets the stat variable "language" to "french"
@@ -220,14 +223,32 @@ class MathDictionary extends React.Component {
     return <h3>{fWord + "/" + eWord}</h3>
   }
 
+  showImage() {
+    let img
+    for (let i = 0; i < data.length; i++) {
+      if(data[i].objID === this.state.obj) {
+        img = "/assets/" + data[i].image + ".png"
+      }
+    }
+    return <img src={img}></img>
+  }
+
+  nextWord() {
+
+  }
+
+  prevWord() {
+
+  }
+
   //displays the word, its definitions, and a visual aid
   wordView() {
     return (
       <div>
         <div id="navArea">
-          <button className="navButton"> <img className="backButton" src="assets/backButtonBlue.png"></img> </button>
+          <button className="navButton" onClick={this.nextWord}> <img className="backButton" src="assets/backButtonBlue.png"></img> </button>
           <button className="navButton" onClick={this.goHome}> <img className="backButton" src="assets/homeButtonBlue.png"></img> </button>
-          <button className="navButton"> <img className="backButton" src="assets/forwardButtonBlue.png"></img> </button>
+          <button className="navButton" onClick={this.prevWord}> <img className="backButton" src="assets/forwardButtonBlue.png"></img> </button>
         </div>
 
         <div id="wordTitle">
@@ -235,7 +256,7 @@ class MathDictionary extends React.Component {
         </div>
 
         <div id="wordImage">
-
+          {this.showImage()}
         </div>
 
         <div>
