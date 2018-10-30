@@ -196,6 +196,7 @@ class MathDictionary extends React.Component {
     }))
   }
 
+  //shows both the English and French definitions of the selected word
   showDefinition() {
     let fDef, eDef
     for (let i = 0; i < data.length; i++) {
@@ -212,6 +213,7 @@ class MathDictionary extends React.Component {
     )
   }
 
+  //shows the selected word (in French and English) on the definition page
   showWords() {
     let fWord, eWord
     for (let i = 0; i < data.length; i++) {
@@ -223,6 +225,7 @@ class MathDictionary extends React.Component {
     return <h3>{fWord + "/" + eWord}</h3>
   }
 
+  //show the image of the selected word on the definition page
   showImage() {
     let img
     for (let i = 0; i < data.length; i++) {
@@ -233,6 +236,7 @@ class MathDictionary extends React.Component {
     return <img src={img}></img>
   }
 
+  //show the next word in the definition view
   nextWord() {
     let nextWord = this.state.obj + 1
     if(nextWord > data.length) {
@@ -243,6 +247,7 @@ class MathDictionary extends React.Component {
     }))
   }
 
+  //show the previous word in the definition view
   prevWord() {
     let prevWord = this.state.obj - 1
     if(prevWord < 1) {
@@ -253,7 +258,7 @@ class MathDictionary extends React.Component {
     }))
   }
 
-  //displays the word, its definitions, and a visual aid
+  //view when you click on a word displays the word, definitions, and image
   wordView() {
     return (
       <div>

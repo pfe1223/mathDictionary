@@ -1,14 +1,6 @@
 function initClient() {
-  var API_KEY = 'xxx';  // TODO: Update placeholder with desired API key.
-
-  var CLIENT_ID = 'xxx';  // TODO: Update placeholder with desired client ID.
-
-  // TODO: Authorize using one of the following scopes:
-  //   'https://www.googleapis.com/auth/drive'
-  //   'https://www.googleapis.com/auth/drive.file'
-  //   'https://www.googleapis.com/auth/drive.readonly'
-  //   'https://www.googleapis.com/auth/spreadsheets'
-  //   'https://www.googleapis.com/auth/spreadsheets.readonly'
+  var API_KEY = 'AIzaSyAkupQZKQiunQz30q47wufjUw_H6O_aJW8';  
+  var CLIENT_ID = '222486791717-tgujfgiet2epa5i7emc2u0oi14v0koup.apps.googleusercontent.com ';
   var SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly';
 
   gapi.client.init({
