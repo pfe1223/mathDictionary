@@ -178,13 +178,13 @@ class MathDictionary extends React.Component {
     let object
     if(this.state.language === "french") {
       for(let i = 0; i < data.length; i++) {
-        if(data[i].frenchword === word) {
+        if(data[i].frenchword.toLowerCase() === word) {
           object = data[i].objID
         }
       }
     } else if (this.state.language === "english") {
       for(let i = 0; i < data.length; i++) {
-        if(data[i].englishword === word) {
+        if(data[i].englishword.toLowerCase() === word) {
           object = data[i].objID
         }
       }
@@ -194,7 +194,6 @@ class MathDictionary extends React.Component {
       obj: object,
       view: "definition"
     }))
-    //console.log("Word: ", word, "Obj ID: ", this.state.obj)
   }
 
   showDefinition() {
@@ -215,7 +214,6 @@ class MathDictionary extends React.Component {
 
   showWords() {
     let fWord, eWord
-    console.log("Obj ID: ", this.state.obj)
     for (let i = 0; i < data.length; i++) {
       if(data[i].objID === this.state.obj) {
         fWord = data[i].frenchword
@@ -246,7 +244,13 @@ class MathDictionary extends React.Component {
   }
 
   prevWord() {
-
+    let prevWord = this.state.obj - 1
+    if(prevWord < 1) {
+      prevWord = data.length
+    }
+    this.setState(state => ({
+      obj : prevWord
+    }))
   }
 
   //displays the word, its definitions, and a visual aid
