@@ -1,6 +1,6 @@
 function initClient() {
-  var API_KEY = 'AIzaSyAkupQZKQiunQz30q47wufjUw_H6O_aJW8';  
-  var CLIENT_ID = '222486791717-tgujfgiet2epa5i7emc2u0oi14v0koup.apps.googleusercontent.com ';
+  var API_KEY = 'xxx';
+  var CLIENT_ID = 'xxx';
   var SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly';
 
   gapi.client.init({
