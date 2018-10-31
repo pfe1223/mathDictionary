@@ -112,7 +112,8 @@ class MathDictionary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      obj: "",
+      search: "", //search term entered by the user
+      obj: "", //object ID from the JSON objects
       language: "french", //choice between "engligh" and "french"
       view: "list" //choice betwen "list" and "definition"
     };
@@ -129,6 +130,8 @@ class MathDictionary extends React.Component {
     this.goHome = this.goHome.bind(this) //return to the list view
     this.nextWord = this.nextWord.bind(this) //return to the list view
     this.prevWord = this.prevWord.bind(this) //return to the list view
+    this.showSearch = this.showSearch.bind(this) //search box
+    this.updateSearch = this.updateSearch.bind(this) //filter words via search
   }
 
   //sets the stat variable "language" to "french"
@@ -145,11 +148,28 @@ class MathDictionary extends React.Component {
     }))
   }
 
+  //filter list of words via search
+  updateSearch(event) {
+    console.log(event)
+    // this.setState(state => ({
+    //   search: event.target.value
+    // }))
+  }
+
+  //display the search box on the list view page
+  showSearch() {
+    return (
+      <div>
+        <input type="text" value={this.state.search}  onChange={this.updateSearch} id="searchBox"/>
+      </div>
+    )
+  }
+
   //returns a list of words based on the language selected
   getWords() {
     let words
     if(this.state.language === "french"){
-      words = data.map(word => word.frenchword.toLowerCase()  )
+      words = data.map(word => word.frenchword.toLowerCase())
     } else if(this.state.language === "english") {
       words = data.map(word => word.englishword.toLowerCase())
     }
@@ -158,6 +178,11 @@ class MathDictionary extends React.Component {
 
   //displays the language buttons and list of words
   listView() {
+    let wordsToShow = this.getWords().filter(
+      (word) => {
+        return word.indexOf(this.state.search) !== -1
+      }
+    )
     return (
       <div>
         <div className="buttonArea">
@@ -165,8 +190,10 @@ class MathDictionary extends React.Component {
           <button className="languageButton" onClick={this.clickEnglish}>English</button>
         </div>
 
+        {this.showSearch()}
+
         <div>
-          {this.getWords().map((word, index) => <input type="button" className="wordButton" key={index} value={word} onClick={this.clickWord}></input>)}
+          {wordsToShow.map((word, index) => <input type="button" className="wordButton" key={index} value={word} onClick={this.clickWord}></input>)}
         </div>
       </div>
     )
