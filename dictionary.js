@@ -133,6 +133,7 @@ class MathDictionary extends React.Component {
     this.showSearch = this.showSearch.bind(this) //search box
     this.updateSearch = this.updateSearch.bind(this) //filter words via search
     this.showLanguageButtons = this.showLanguageButtons.bind(this) //display the "French" and "English" language buttons
+    this.showListOfWords = this.showListOfWords.bind(this) //display the list of words
   }
 
   //sets the stat variable "language" to "french"
@@ -186,6 +187,14 @@ class MathDictionary extends React.Component {
     )
   }
 
+  showListOfWords(wordsToShow) {
+    return (
+      <div>
+        {wordsToShow.map((word, index) => <input type="button" className="wordButton" key={index} value={word} onClick={this.clickWord}></input>)}
+      </div>
+    )
+  }
+
   //displays the language buttons and list of words
   listView() {
     let wordsToShow = this.getWords().filter(
@@ -199,9 +208,7 @@ class MathDictionary extends React.Component {
 
         {this.showSearch()}
 
-        <div>
-          {wordsToShow.map((word, index) => <input type="button" className="wordButton" key={index} value={word} onClick={this.clickWord}></input>)}
-        </div>
+        {this.showListOfWords(wordsToShow)}
       </div>
     )
   }
