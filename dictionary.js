@@ -197,6 +197,7 @@ class MathDictionary extends React.Component {
 
   //displays the language buttons and list of words
   listView() {
+    //filter the list of words via the search box
     let wordsToShow = this.getWords().filter(
       (word) => {
         return word.indexOf(this.state.search) !== -1
@@ -204,10 +205,11 @@ class MathDictionary extends React.Component {
     )
     return (
       <div>
+        //display the language buttons
         {this.showLanguageButtons()}
-
+        //display the search box
         {this.showSearch()}
-
+        //display the list of words
         {this.showListOfWords(wordsToShow)}
       </div>
     )
