@@ -11,9 +11,10 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-#titleArea {
+h1 {
   text-align: center;
-  font-size: 40px;
+  font-family: 'Lato', sans-serif;
+  font-size: 70px;
 }
 
 .languageButton {
@@ -64,7 +65,9 @@ body {
   height: 15%
 }
 
-#definitions {}
+#definitions {
+  padding-bottom: 30px;
+}
 
 .fDefintion {
   display: inline-block;
@@ -83,13 +86,6 @@ img {
   margin-right: auto;
   width: 50%;
   height: 50%;
-}
-
-#searchIcon {
-  padding: 5px;
-  display: inline;
-  width: 8%;
-  height: 8%;
 }
 
 #searchBox {
