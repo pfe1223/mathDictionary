@@ -134,6 +134,7 @@ class MathDictionary extends React.Component {
     this.updateSearch = this.updateSearch.bind(this) //filter words via search
     this.showLanguageButtons = this.showLanguageButtons.bind(this) //display the "French" and "English" language buttons
     this.showListOfWords = this.showListOfWords.bind(this) //display the list of words
+    this.showTitle = this.showTitle.bind(this) //show <h1> title on page
   }
 
   //sets the stat variable "language" to "french"
@@ -200,6 +201,14 @@ class MathDictionary extends React.Component {
     )
   }
 
+  showTitle() {
+    if(this.state.language === 'english') {
+      return <h1 className="titleArea"> Math Dictionary </h1>
+    } else if (this.state.language === 'french') {
+      return <h1 className="titleArea"> Dictionnaire de maths </h1>
+    }
+  }
+
   //displays the language buttons and list of words
   listView() {
     //filter the list of words via the search box
@@ -210,6 +219,7 @@ class MathDictionary extends React.Component {
     )
     return (
       <div>
+        {this.showTitle()}
         {this.showLanguageButtons()}
         {this.showSearch()}
         {this.showListOfWords(wordsToShow)}
@@ -307,6 +317,7 @@ class MathDictionary extends React.Component {
   wordView() {
     return (
       <div>
+        {this.showTitle()}
         <div id="navArea">
           <button className="navButton" onClick={this.prevWord}> <img className="backButton" src="assets/backButtonBlue.png"></img> </button>
           <button className="navButton" onClick={this.goHome}> <img className="backButton" src="assets/homeButtonBlue.png"></img> </button>
