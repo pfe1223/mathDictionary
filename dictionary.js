@@ -159,9 +159,15 @@ class MathDictionary extends React.Component {
 
   //display the search box on the list view page
   showSearch() {
+    let searchWord;
+    if(this.state.language === 'english') {
+      searchWord = "Search..."
+    } else if (this.state.language === 'french') {
+      searchWord = "Chercher..."
+    }
     return (
       <div>
-        <input id="searchBox" type="text" placeholder="Search..." value={this.state.search}  onChange={this.updateSearch}/>
+        <input id="searchBox" placeholder={searchWord} value={this.state.search}  onChange={this.updateSearch}/>
       </div>
     )
   }
