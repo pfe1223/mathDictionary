@@ -152,17 +152,16 @@ class MathDictionary extends React.Component {
 
   //filter list of words via search
   updateSearch(event) {
-    console.log(event)
-    // this.setState(state => ({
-    //   search: event.target.value
-    // }))
+    this.setState({
+      search: event.target.value
+    })
   }
 
   //display the search box on the list view page
   showSearch() {
     return (
       <div>
-        <input type="text" value={this.state.search}  onChange={this.updateSearch} id="searchBox"/>
+        <input id="searchBox" type="text" value={this.state.search}  onChange={this.updateSearch}/>
       </div>
     )
   }
@@ -205,11 +204,8 @@ class MathDictionary extends React.Component {
     )
     return (
       <div>
-        //display the language buttons
         {this.showLanguageButtons()}
-        //display the search box
         {this.showSearch()}
-        //display the list of words
         {this.showListOfWords(wordsToShow)}
       </div>
     )
