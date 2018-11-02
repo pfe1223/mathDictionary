@@ -161,7 +161,7 @@ class MathDictionary extends React.Component {
   showSearch() {
     return (
       <div>
-        <input id="searchBox" type="text" value={this.state.search}  onChange={this.updateSearch}/>
+        <input id="searchBox" type="text" placeholder="Search..." value={this.state.search}  onChange={this.updateSearch}/>
       </div>
     )
   }
