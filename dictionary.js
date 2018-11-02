@@ -246,6 +246,7 @@ class MathDictionary extends React.Component {
     }
 
     this.setState(state => ({
+      search: "",
       obj: object,
       view: "definition"
     }))
