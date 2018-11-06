@@ -185,7 +185,7 @@ class MathDictionary extends React.Component {
         eWord = data[i].englishword
       }
     }
-    return <h3>{fWord + "/" + eWord}</h3>
+    return <h3 id="wordTitle">{fWord + "/" + eWord}</h3>
   }
 
   //show the image of the selected word on the definition page
@@ -197,7 +197,7 @@ class MathDictionary extends React.Component {
         img = "/assets/" + data[i].image + ".png"
       }
     }
-    return <img src={img}></img>
+    return <img id="wordImage" src={img}></img>
   }
 
   //show the next word in the definition view
@@ -235,17 +235,9 @@ class MathDictionary extends React.Component {
           <button className="navButton" onClick={this.nextWord}> <img className="backButton" src="assets/forwardButtonBlue.png"></img> </button>
         </div>
 
-        <div id="wordTitle">
           {this.showWords()}
-        </div>
-
-        <div id="wordImage">
           {this.showImage()}
-        </div>
-
-        <div>
           {this.showDefinition()}
-        </div>
       </div>
     )
   }
