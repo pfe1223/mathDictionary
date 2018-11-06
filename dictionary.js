@@ -74,17 +74,15 @@ class MathDictionary extends React.Component {
     } else if (this.state.language === 'french') {
       searchWord = "Chercher..."
     }
-    return (
-      <div>
-        <input id="searchBox" placeholder={searchWord} value={this.state.search}  onChange={this.updateSearch}/>
-      </div>
-    )
+    return <div>
+            <input id="searchBox" placeholder={searchWord} value={this.state.search}  onChange={this.updateSearch}/>
+          </div>
   }
 
   //returns a list of words based on the language selected
   getWords() {
     let words
-    if(this.state.language === "french"){
+    if(this.state.language === "french") {
       words = this.state.words.map(word => word.frenchword.toLowerCase())
     } else if(this.state.language === "english") {
       words = this.state.words.map(word => word.englishword.toLowerCase())
@@ -93,20 +91,16 @@ class MathDictionary extends React.Component {
   }
 
   showLanguageButtons() {
-    return (
-      <div className="buttonArea">
-        <button className="languageButton" onClick={this.clickFrench}>français</button>
-        <button className="languageButton" onClick={this.clickEnglish}>English</button>
-      </div>
-    )
+    return <div className="buttonArea">
+            <button className="languageButton" onClick={this.clickFrench}>français</button>
+            <button className="languageButton" onClick={this.clickEnglish}>English</button>
+          </div>
   }
 
   showListOfWords(wordsToShow) {
-    return (
-      <div>
-        {wordsToShow.map((word, index) => <input type="button" className="wordButton" key={index} value={word} onClick={this.clickWord}></input>)}
-      </div>
-    )
+    return <div>
+            {wordsToShow.map((word, index) => <input type="button" className="wordButton" key={index} value={word} onClick={this.clickWord}></input>)}
+          </div>
   }
 
   showTitle() {
@@ -125,14 +119,12 @@ class MathDictionary extends React.Component {
         return word.indexOf(this.state.search) !== -1
       }
     )
-    return (
-      <div>
-        {this.showTitle()}
-        {this.showLanguageButtons()}
-        {this.showSearch()}
-        {this.showListOfWords(wordsToShow)}
-      </div>
-    )
+    return <div>
+            {this.showTitle()}
+            {this.showLanguageButtons()}
+            {this.showSearch()}
+            {this.showListOfWords(wordsToShow)}
+          </div>
   }
 
   //changes state variable "view" to "definition"
@@ -171,12 +163,10 @@ class MathDictionary extends React.Component {
         eDef = data[i].englishdescription
       }
     }
-    return (
-      <div id="definitions">
-        <div className="fDefintion">{fDef}</div>
-        <div className="eDefintion">{eDef}</div>
-      </div>
-    )
+    return <div id="definitions">
+            <div className="fDefintion">{fDef}</div>
+            <div className="eDefintion">{eDef}</div>
+          </div>
   }
 
   //shows the selected word (in French and English) on the definition page
@@ -190,9 +180,9 @@ class MathDictionary extends React.Component {
         eWord = data[i].englishword
       }
     }
-    if(lang === 'french'){
+    if(lang === 'french') {
       return <h3 id="wordTitle">{fWord + "/" + eWord}</h3>
-    } else if (lang === 'english'){
+    } else if (lang === 'english') {
         return <h3 id="wordTitle">{eWord + "/" + fWord}</h3>
     }
   }
@@ -259,15 +249,13 @@ class MathDictionary extends React.Component {
 
   //view when you click on a word displays the word, definitions, and image
   wordView() {
-    return (
-      <div>
-        {this.showTitle()}
-        {this.showButtons()}
-          {this.showWords()}
-          {this.showImage()}
-          {this.showDefinition()}
-      </div>
-    )
+    return <div>
+            {this.showTitle()}
+            {this.showButtons()}
+            {this.showWords()}
+            {this.showImage()}
+            {this.showDefinition()}
+          </div>
   }
 
   //sets the state variable "view" back to "list"
