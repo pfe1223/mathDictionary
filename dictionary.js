@@ -179,13 +179,18 @@ class MathDictionary extends React.Component {
   showWords() {
     let fWord, eWord
     const data = this.state.words
+    const lang = this.state.language
     for (let i = 0; i < data.length; i++) {
       if(data[i].objID === this.state.obj) {
         fWord = data[i].frenchword
         eWord = data[i].englishword
       }
     }
-    return <h3 id="wordTitle">{fWord + "/" + eWord}</h3>
+    if(lang === 'french'){
+      return <h3 id="wordTitle">{fWord + "/" + eWord}</h3>
+    } else if (lang === 'english'){
+        return <h3 id="wordTitle">{eWord + "/" + fWord}</h3>
+    }
   }
 
   //show the image of the selected word on the definition page
