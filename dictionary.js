@@ -202,6 +202,7 @@ class MathDictionary extends React.Component {
 
   //show the next word in the definition view
   nextWord() {
+    const data = this.state.words
     let nextWord = this.state.obj + 1
     if(nextWord > data.length) {
       nextWord = 1
@@ -213,6 +214,7 @@ class MathDictionary extends React.Component {
 
   //show the previous word in the definition view
   prevWord() {
+    const data = this.state.words
     let prevWord = this.state.obj - 1
     if(prevWord < 1) {
       prevWord = data.length
