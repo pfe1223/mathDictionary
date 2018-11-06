@@ -30,6 +30,10 @@ class MathDictionary extends React.Component {
     this.showLanguageButtons = this.showLanguageButtons.bind(this) //display the "French" and "English" language buttons
     this.showListOfWords = this.showListOfWords.bind(this) //display the list of words
     this.showTitle = this.showTitle.bind(this) //show <h1> title on page
+    this.showBackButton = this.showBackButton.bind(this) //show back button in the definition view
+    this.showHomeButton = this.showHomeButton.bind(this) //show home button in the definition view
+    this.showNextButton = this.showNextButton.bind(this) //show next button in the definition view
+    this.showButtons = this.showButtons.bind(this) //show home button in the definition view
   }
 
   componentWillMount() {
@@ -229,17 +233,36 @@ class MathDictionary extends React.Component {
     }))
   }
 
+  //show the previous word button in the definition view
+  showBackButton() {
+    return <button className="navButton" onClick={this.prevWord}> <img className="backButton" src="assets/backButtonBlue.png"></img> </button>
+  }
+
+  //show the home button in the definition view
+  showHomeButton() {
+    return <button className="navButton" onClick={this.goHome}> <img className="backButton" src="assets/homeButtonBlue.png"></img> </button>
+  }
+
+  //show the next word button in the definition view
+  showNextButton() {
+    return <button className="navButton" onClick={this.nextWord}> <img className="backButton" src="assets/forwardButtonBlue.png"></img> </button>
+  }
+
+  //show all the buttons in the definition view
+  showButtons() {
+    return <div id="navArea">
+      {this.showBackButton()}
+      {this.showHomeButton()}
+      {this.showNextButton()}
+    </div>
+  }
+
   //view when you click on a word displays the word, definitions, and image
   wordView() {
     return (
       <div>
         {this.showTitle()}
-        <div id="navArea">
-          <button className="navButton" onClick={this.prevWord}> <img className="backButton" src="assets/backButtonBlue.png"></img> </button>
-          <button className="navButton" onClick={this.goHome}> <img className="backButton" src="assets/homeButtonBlue.png"></img> </button>
-          <button className="navButton" onClick={this.nextWord}> <img className="backButton" src="assets/forwardButtonBlue.png"></img> </button>
-        </div>
-
+        {this.showButtons()}
           {this.showWords()}
           {this.showImage()}
           {this.showDefinition()}
